@@ -1,4 +1,4 @@
-Phalanx
+Phalanx [![Build Status](https://travis-ci.org/fiveisprime/phalanx.png?branch=master)](https://travis-ci.org/fiveisprime/phalanx)
 =======
 
 Express error management made easy.
