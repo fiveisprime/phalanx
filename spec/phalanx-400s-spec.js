@@ -10,40 +10,136 @@ describe('400 status codes', function() {
 
     it('should send a 400 for bad request', function() {
       spyOn(res, 'send');
-      phalanx.badRequest('Bad request.').send(res);
+      phalanx.badRequest('Error.').send(res);
 
       expect(res.send).wasCalled();
       expect(res.statusCode).toEqual(400);
     });
-    
+
     it('should send a 401 for unauthorized', function() {
       spyOn(res, 'send');
-      phalanx.unauthorized('Unauthorized.').send(res);
+      phalanx.unauthorized('Error.').send(res);
 
       expect(res.send).wasCalled();
       expect(res.statusCode).toEqual(401);
+    });
+
+    it('should send a 403 for forbidden', function() {
+      spyOn(res, 'send');
+      phalanx.forbidden('Error.').send(res);
+
+      expect(res.send).wasCalled();
+      expect(res.statusCode).toEqual(403);
+    });
+
+    it('should send a 404 for not found', function() {
+      spyOn(res, 'send');
+      phalanx.notFound('Error.').send(res);
+
+      expect(res.send).wasCalled();
+      expect(res.statusCode).toEqual(404);
+    });
+
+    it('should send a 405 for method not allowed', function() {
+      spyOn(res, 'send');
+      phalanx.methodNotAllowed('Error.').send(res);
+
+      expect(res.send).wasCalled();
+      expect(res.statusCode).toEqual(405);
+    });
+
+    it('should send a 406 for not acceptable', function() {
+      spyOn(res, 'send');
+      phalanx.notAcceptable('Error.').send(res);
+
+      expect(res.send).wasCalled();
+      expect(res.statusCode).toEqual(406);
+    });
+
+    it('should send a 408 for request timeout', function() {
+      spyOn(res, 'send');
+      phalanx.requestTimeout('Error.').send(res);
+
+      expect(res.send).wasCalled();
+      expect(res.statusCode).toEqual(408);
+    });
+
+    it('should send a 410 for gone', function() {
+      spyOn(res, 'send');
+      phalanx.gone('Error.').send(res);
+
+      expect(res.send).wasCalled();
+      expect(res.statusCode).toEqual(410);
     });
 
   });
 
   describe('render', function() {
-    
+
     it('should send a 400 and render a view for bad request', function() {
       spyOn(res, 'render');
-      phalanx.badRequest('Bad request.').render(res, 'test');
+      phalanx.badRequest('Error.').render(res, 'test');
 
       expect(res.render).wasCalled();
       expect(res.statusCode).toEqual(400);
     });
-    
+
     it('should send a 401 and render a view for unauthorized', function() {
       spyOn(res, 'render');
-      phalanx.unauthorized('Unauthorized.').render(res, 'test');
+      phalanx.unauthorized('Error.').render(res, 'test');
 
       expect(res.render).wasCalled();
       expect(res.statusCode).toEqual(401);
     });
-    
+
+    it('should send a 403 and render a view for forbidden', function() {
+      spyOn(res, 'render');
+      phalanx.forbidden('Error.').render(res, 'test');
+
+      expect(res.render).wasCalled();
+      expect(res.statusCode).toEqual(403);
+    });
+
+    it('should send a 404 and render a view for not found', function() {
+      spyOn(res, 'render');
+      phalanx.notFound('Error.').render(res, 'test');
+
+      expect(res.render).wasCalled();
+      expect(res.statusCode).toEqual(404);
+    });
+
+    it('should send a 405 and render a view for method not allowed', function() {
+      spyOn(res, 'render');
+      phalanx.methodNotAllowed('Error.').render(res, 'test');
+
+      expect(res.render).wasCalled();
+      expect(res.statusCode).toEqual(405);
+    });
+
+    it('should send a 406 and render a view for not acceptable', function() {
+      spyOn(res, 'render');
+      phalanx.notAcceptable('Error.').render(res, 'test');
+
+      expect(res.render).wasCalled();
+      expect(res.statusCode).toEqual(406);
+    });
+
+    it('should send a 408 and render a view for request timeout', function() {
+      spyOn(res, 'render');
+      phalanx.requestTimeout('Error.').render(res, 'test');
+
+      expect(res.render).wasCalled();
+      expect(res.statusCode).toEqual(408);
+    });
+
+    it('should send a 410 and render a view for gone', function() {
+      spyOn(res, 'render');
+      phalanx.gone('Error.').render(res, 'test');
+
+      expect(res.render).wasCalled();
+      expect(res.statusCode).toEqual(410);
+    });
+
   });
 
 });
