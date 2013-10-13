@@ -60,6 +60,13 @@ exports.notAcceptable = function(message) {
 };
 
 //
+// The client must first authenticate itself with the proxy.
+//
+exports.proxyAuthenticationRequired = function(message) {
+  return new Phalanx(407, message);
+};
+
+//
 // The server timed out waiting for the request. According to W3 HTTP
 //    specifications: "The client did not produce a request within the time
 //    that the server was prepared to wait. The client MAY repeat the request
@@ -67,6 +74,14 @@ exports.notAcceptable = function(message) {
 //
 exports.requestTimeout = function(message) {
   return new Phalanx(408, message);
+};
+
+//
+// Indicates that the request could not be processed because of conflict in the
+//    request, such as an edit conflict in the case of multiple updates.
+//
+exports.conflict = function(message) {
+  return new Phalanx(409, message);
 };
 
 //

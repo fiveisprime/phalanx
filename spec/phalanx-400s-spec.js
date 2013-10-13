@@ -56,12 +56,28 @@ describe('400 status codes', function() {
       expect(res.statusCode).toEqual(406);
     });
 
+    it('should send a 407 for proxy authentication required', function() {
+      spyOn(res, 'send');
+      phalanx.proxyAuthenticationRequired('Error.').send(res);
+
+      expect(res.send).wasCalled();
+      expect(res.statusCode).toEqual(407);
+    });
+
     it('should send a 408 for request timeout', function() {
       spyOn(res, 'send');
       phalanx.requestTimeout('Error.').send(res);
 
       expect(res.send).wasCalled();
       expect(res.statusCode).toEqual(408);
+    });
+
+    it('should send a 409 for conflict', function() {
+      spyOn(res, 'send');
+      phalanx.conflict('Error.').send(res);
+
+      expect(res.send).wasCalled();
+      expect(res.statusCode).toEqual(409);
     });
 
     it('should send a 410 for gone', function() {
@@ -124,12 +140,28 @@ describe('400 status codes', function() {
       expect(res.statusCode).toEqual(406);
     });
 
+    it('should send a 407 and render a view for proxy authentication required', function() {
+      spyOn(res, 'render');
+      phalanx.proxyAuthenticationRequired('Error.').render(res, 'test');
+
+      expect(res.render).wasCalled();
+      expect(res.statusCode).toEqual(407);
+    });
+
     it('should send a 408 and render a view for request timeout', function() {
       spyOn(res, 'render');
       phalanx.requestTimeout('Error.').render(res, 'test');
 
       expect(res.render).wasCalled();
       expect(res.statusCode).toEqual(408);
+    });
+
+    it('should send a 409 and render a view for conflict', function() {
+      spyOn(res, 'render');
+      phalanx.conflict('Error.').render(res, 'test');
+
+      expect(res.render).wasCalled();
+      expect(res.statusCode).toEqual(409);
     });
 
     it('should send a 410 and render a view for gone', function() {
