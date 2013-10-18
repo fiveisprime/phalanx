@@ -3,6 +3,7 @@ var phalanx = require('../')
 
 res.send = function() {};
 res.render = function() {};
+res.json = function() {};
 
 describe('500 status codes', function() {
 
@@ -89,6 +90,50 @@ describe('500 status codes', function() {
       phalanx.gatewayTimeout('Error').render(res, 'test');
 
       expect(res.render).wasCalled();
+      expect(res.statusCode).toEqual(504);
+    });
+
+  });
+  
+  describe('json', function() {
+
+    it('should send json a 500 for internal server error', function() {
+      spyOn(res, 'json');
+      phalanx.internalServerError('Error').json(res);
+
+      expect(res.json).wasCalled();
+      expect(res.statusCode).toEqual(500);
+    });
+
+    it('should send json a 501 for not implemented', function() {
+      spyOn(res, 'json');
+      phalanx.notImplemented('Error').json(res);
+
+      expect(res.json).wasCalled();
+      expect(res.statusCode).toEqual(501);
+    });
+
+    it('should send json a 502 for bad gateway', function() {
+      spyOn(res, 'json');
+      phalanx.badGateway('Error').json(res);
+
+      expect(res.json).wasCalled();
+      expect(res.statusCode).toEqual(502);
+    });
+
+    it('should send json a 503 for service unavailable', function() {
+      spyOn(res, 'json');
+      phalanx.serviceUnavailable('Error').json(res);
+
+      expect(res.json).wasCalled();
+      expect(res.statusCode).toEqual(503);
+    });
+
+    it('should send json a 504 for gateway timeout', function() {
+      spyOn(res, 'json');
+      phalanx.gatewayTimeout('Error').json(res);
+
+      expect(res.json).wasCalled();
       expect(res.statusCode).toEqual(504);
     });
 
