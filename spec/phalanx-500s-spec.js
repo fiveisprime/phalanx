@@ -97,7 +97,7 @@ describe('500 status codes', function() {
   
   describe('json', function() {
 
-    it('should send json a 500 for internal server error', function() {
+    it('should send a json 500 for internal server error', function() {
       spyOn(res, 'json');
       phalanx.internalServerError('Error').json(res);
 
@@ -105,7 +105,7 @@ describe('500 status codes', function() {
       expect(res.statusCode).toEqual(500);
     });
 
-    it('should send json a 501 for not implemented', function() {
+    it('should send a json 501 for not implemented', function() {
       spyOn(res, 'json');
       phalanx.notImplemented('Error').json(res);
 
@@ -113,7 +113,7 @@ describe('500 status codes', function() {
       expect(res.statusCode).toEqual(501);
     });
 
-    it('should send json a 502 for bad gateway', function() {
+    it('should send a json 502 for bad gateway', function() {
       spyOn(res, 'json');
       phalanx.badGateway('Error').json(res);
 
@@ -121,7 +121,7 @@ describe('500 status codes', function() {
       expect(res.statusCode).toEqual(502);
     });
 
-    it('should send json a 503 for service unavailable', function() {
+    it('should send a json 503 for service unavailable', function() {
       spyOn(res, 'json');
       phalanx.serviceUnavailable('Error').json(res);
 
@@ -129,7 +129,7 @@ describe('500 status codes', function() {
       expect(res.statusCode).toEqual(503);
     });
 
-    it('should send json a 504 for gateway timeout', function() {
+    it('should send a json 504 for gateway timeout', function() {
       spyOn(res, 'json');
       phalanx.gatewayTimeout('Error').json(res);
 

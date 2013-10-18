@@ -225,7 +225,7 @@ describe('400 status codes', function() {
       expect(res.statusCode).toEqual(406);
     });
 
-    it('should send json a 407 for proxy authentication required', function() {
+    it('should send a json 407 for proxy authentication required', function() {
       spyOn(res, 'json');
       phalanx.proxyAuthenticationRequired('Error.').json(res);
 
@@ -233,7 +233,7 @@ describe('400 status codes', function() {
       expect(res.statusCode).toEqual(407);
     });
 
-    it('should send json a 408 for request timeout', function() {
+    it('should send a json 408 for request timeout', function() {
       spyOn(res, 'json');
       phalanx.requestTimeout('Error.').json(res);
 
@@ -241,7 +241,7 @@ describe('400 status codes', function() {
       expect(res.statusCode).toEqual(408);
     });
 
-    it('should send json a 409 for conflict', function() {
+    it('should send a json 409 for conflict', function() {
       spyOn(res, 'json');
       phalanx.conflict('Error.').json(res);
 
@@ -249,7 +249,7 @@ describe('400 status codes', function() {
       expect(res.statusCode).toEqual(409);
     });
 
-    it('should send json a 410 for gone', function() {
+    it('should send a json 410 for gone', function() {
       spyOn(res, 'json');
       phalanx.gone('Error.').json(res);
 
