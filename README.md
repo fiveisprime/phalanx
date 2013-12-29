@@ -7,7 +7,7 @@ Express error management made easy.
 
 # Usage
 
-Send an error with the correct status code:
+Send an error with the correct status code
 
 ```js
 var phalanx = require('phalanx');

@@ -1,4 +1,4 @@
-SRC = index.js lib/phalanx.js
+SRC = index.js lib/phalanx.js $(wildcard spec/*.js)
 
 test: $(SRC)
 	@node node_modules/.bin/jshint $^
