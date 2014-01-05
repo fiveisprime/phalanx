@@ -2,7 +2,7 @@ SRC = index.js lib/phalanx.js $(wildcard spec/*.js)
 
 test: $(SRC)
 	@node node_modules/.bin/jshint $^
-	@NODE_ENV=test node node_modules/.bin/jasmine-node \
-	--verbose \
-	--captureExceptions \
-	spec
+	@node node_modules/.bin/istanbul test node_modules/.bin/_mocha \
+	-R spec -- \
+	--require should \
+	--reporter spec
