@@ -1,9 +1,7 @@
-Phalanx [![Build Status](https://travis-ci.org/fiveisprime/phalanx.svg?branch=master)](https://travis-ci.org/fiveisprime/phalanx)
+Phalanx [![NPM version](https://badge.fury.io/js/phalanx.svg)](http://badge.fury.io/js/phalanx) [![Build Status](https://travis-ci.org/fiveisprime/phalanx.svg?branch=master)](https://travis-ci.org/fiveisprime/phalanx)
 =======
 
 Express error management made easy.
-
-[![NPM](https://nodei.co/npm/phalanx.png)](https://nodei.co/npm/phalanx/)
 
 # Usage
 
